@@ -2,8 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Register</title>
-  <link rel="stylesheet" href="src/styles/auth.css" />
+  <link rel="stylesheet" href="/src/styles/auth.css" />
 </head>
 <body>
   <div class="auth-container">
@@ -18,33 +19,6 @@
     <p>Already have an account? <a href="login.html">Login</a></p>
   </div>
 
-  <script type="module">
-    import { auth } from '/src/firebase.js';
-    import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
-
-    const form = document.getElementById("register-form");
-
-    form.addEventListener("submit", async (e) => {
-      e.preventDefault();
-
-      const username = form.username.value;
-      const email = form.email.value;
-      const password = form.password.value;
-
-      try {
-        const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-        const user = userCredential.user;
-
-        await updateProfile(user, {
-          displayName: username,
-        });
-
-        alert("✅ Registered successfully!");
-        window.location.href = "login.html";
-      } catch (error) {
-        alert("❌ Registration failed: " + error.message);
-      }
-    });
-  </script>
+  <script type="module" src="/src/register.js"></script>
 </body>
 </html>

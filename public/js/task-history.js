@@ -1,5 +1,5 @@
-import { renderNavbar } from '/src/navbar.js';
-import { db, auth } from '/src/firebase.js';
+import { renderNavbar } from '../js/navbar.js';
+import { db, auth } from '../js/firebase.js';
 import { ref, onValue, remove } from "firebase/database";
 import { onAuthStateChanged } from "firebase/auth";
 
@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   onAuthStateChanged(auth, (user) => {
     if (!user) {
-      window.location.href = "/login.html";
+      window.location.href = "../html/login.html";
       return;
     }
 

@@ -1,10 +1,10 @@
-import { renderNavbar } from '/src/navbar.js';
+import { renderNavbar } from '../js/navbar.js';
 import { auth, db } from './firebase.js';
 import { ref, set, push, onValue } from "firebase/database";
 import { onAuthStateChanged } from "firebase/auth";
-import { taskHistoryScheduler } from './taskHistoryScheduler.js';
+import { taskHistoryScheduler } from '../js/taskHistoryScheduler.js';
 
-import { renderNavbar } from './navbar.js';
+import { renderNavbar } from '../js/navbar.js';
 renderNavbar();
 
 
@@ -140,7 +140,7 @@ function renderTasks() {
 
 onAuthStateChanged(auth, (user) => {
     if (!user) {
-    window.location.href = "/login.html";
+    window.location.href = "../html/login.html";
     return;
     }
 

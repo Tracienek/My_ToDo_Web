@@ -1,6 +1,6 @@
 // src/register.js
 
-import { auth } from './firebase.js';
+import { auth } from '../js/firebase.js';
 import { createUserWithEmailAndPassword, updateProfile } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-auth.js";
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
       await updateProfile(user, { displayName: username });
 
       alert("✅ Registered successfully!");
-      window.location.href = "/login.html";
+      window.location.href = "../html/login.html";
     } catch (error) {
       console.error("Registration error:", error.code, error.message);
       alert("❌ Registration failed: " + error.message);

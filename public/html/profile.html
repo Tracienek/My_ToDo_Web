@@ -4,8 +4,8 @@
   <meta charset="UTF-8" />
   <title>User Profile</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="src/styles/navbar.css" />
-  <link rel="stylesheet" href="src/styles/style.css">
+  <link rel="stylesheet" href="../styles/navbar.css" />
+  <link rel="stylesheet" href="../styles/style.css">
 </head>
 <body>
   <div class="container">
@@ -45,7 +45,7 @@
 
 
   <script type="module">
-    import { auth } from '/src/firebase.js';
+    import { auth } from '../js/firebase.js';
     import { EmailAuthProvider, reauthenticateWithCredential } from 'firebase/auth';
     import {
       updateProfile,
@@ -153,7 +153,7 @@
     onAuthStateChanged(auth, (user) => {
       if (!user) {
         alert("⚠️ Please login first.");
-        window.location.href = "login.html";
+        window.location.href = "../html/login.html";
       } else {
         currentUser = user;
         loadProfile();
@@ -166,7 +166,7 @@
   </script>
 
   <script type="module">
-    import { renderNavbar } from '/src/navbar.js';
+    import { renderNavbar } from '../js/navbar.js';
     renderNavbar();
   </script>
 </body>

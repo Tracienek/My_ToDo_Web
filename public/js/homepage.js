@@ -4,9 +4,6 @@ import { getDatabase, ref, set, push, onValue } from "https://www.gstatic.com/fi
 import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-auth.js";
 import { taskHistoryScheduler } from '../js/taskHistoryScheduler.js';
 
-renderNavbar();
-
-
 window.addEventListener("DOMContentLoaded", () => {
 renderNavbar();
 

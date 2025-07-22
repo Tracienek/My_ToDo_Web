@@ -1,11 +1,14 @@
 import { auth } from '../js/firebase.js';
 import { EmailAuthProvider, reauthenticateWithCredential } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-auth.js";
 import {
+    getAuth,
+    onAuthStateChanged,
     updateProfile,
     updatePassword,
-    signOut,
-    onAuthStateChanged
-} from 'firebase/auth';
+    EmailAuthProvider,
+    reauthenticateWithCredential
+} from "https://www.gstatic.com/firebasejs/10.12.1/firebase-auth.js";
+import { renderNavbar } from '../js/navbar.js';
 
 window.addEventListener("DOMContentLoaded", () => {
     renderNavbar();

@@ -1,0 +1,42 @@
+/* NAVBAR */
+.navbar {
+    display: flex;
+    justify-content: center;
+    gap: 10rem;
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    padding: 1rem;
+    list-style: none;
+}
+
+.navbar a {
+    color: rgb(83, 82, 82);
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.navbar a:hover {
+    text-decoration: underline;
+    color: #ecf0f1;
+}
+
+@media (max-width: 500px) {
+    .task-input {
+        flex-direction: column;
+    }
+
+    .task-input input,
+    .task-input button {
+        width: 100%;
+    }
+
+    .navbar {
+        flex-wrap: wrap;
+    }
+
+    .task-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}

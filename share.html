@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Shared Task</title>
+  <link rel="stylesheet" href="/src/styles/style.css" />
+</head>
+<body>
+  <main>
+    <h2>Shared Task</h2>
+    <div id="role-label"></div>
+    <ul id="shared-task-list"></ul>
+  </main>
+
+  <script type="module">
+    import { db, ref, get, update } from "/src/firebase.js";
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const taskId = urlParams.get("task");
+
+    const role = urlParams.get("guest") === "1" ? "guest" : "host"; // ?guest=1 nếu là khách
+    document.getElementById("role-label").textContent =
+      role === "host" ? "👑 You are the host" : "🙋 You are a guest";
+
+    const taskList = document.getElementById("shared-task-list");
+
+    const taskRef = ref(db, "tasks/" + taskId);
+    get(taskRef).then((snapshot) => {
+      const task = snapshot.val();
+      if (!task) return taskList.innerHTML = "<li>Task not found!</li>";
+
+      const li = document.createElement("li");
+      li.className = "task-item";
+
+      const taskText = document.createElement("span");
+      taskText.textContent = task.text;
+      if (task.completed) taskText.classList.add("completed");
+
+      const taskDeadline = document.createElement("small");
+      taskDeadline.textContent = task.deadline ? "Due: " + task.deadline : "";
+
+      if (role === "host") {
+        const toggleBtn = document.createElement("button");
+        toggleBtn.textContent = task.completed ? "❌" : "✅";
+        toggleBtn.addEventListener("click", () => {
+          update(taskRef, { completed: !task.completed });
+          location.reload();
+        });
+
+        li.append(taskText, taskDeadline, toggleBtn);
+      } else {
+        taskText.addEventListener("click", () => {
+          update(taskRef, { completed: true });
+          taskText.classList.add("completed");
+        });
+
+        li.append(taskText, taskDeadline);
+      }
+
+      taskList.appendChild(li);
+    });
+  </script>
+</body>
+</html>

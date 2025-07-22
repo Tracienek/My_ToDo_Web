@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>About</title>
+  <link rel="stylesheet" href="/src/styles/style.css" />
+  <link rel="stylesheet" href="src/styles/navbar.css">
+</head>
+<body>
+  <main>
+    <h1>📌 About This App</h1>
+    <section class="features">
+      <!-- Block 1 -->
+      <div class="feature-row">
+        <div class="feature-text">
+          <h3>📌 Smart Task Management</h3>
+          <p>Easily create, update, and track your to-do items with real-time status and deadlines.</p>
+        </div>
+        <div class="feature-media">
+          <img src="/assets/task.png" alt="Task feature image" />
+        </div>
+      </div>
+
+      <!-- Block 2 -->
+      <div class="feature-row reverse">
+        <div class="feature-text">
+          <h3>⏰ Deadline Alerts</h3>
+          <p>Get notified when tasks are overdue or close to their deadline to stay on track.</p>
+        </div>
+        <div class="feature-media">
+          <video controls>
+            <source src="/assets/deadline.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+
+      <!-- Block 3 -->
+      <div class="feature-row">
+        <div class="feature-text">
+          <h3>📊 Stats & History</h3>
+          <p>View performance insights and task history to improve your productivity over time.</p>
+        </div>
+        <div class="feature-media">
+          <img src="/assets/stats.png" alt="Task stats" />
+        </div>
+      </div>
+
+      <!-- Block 4 -->
+      <div class="feature-row reverse">
+        <div class="feature-text">
+          <h3>🔗 Share & Collaborate</h3>
+          <p>
+            Share your task lists with friends, teammates, or clients via a simple link.
+            Guest and host modes ensure privacy and control.
+          </p>
+        </div>
+        <div class="feature-media">
+          <img src="/assets/share.png" alt="Sharing features" />
+        </div>
+      </div>
+
+      <!-- Block 5 -->
+      <div class="feature-row">
+        <div class="feature-text">
+          <h3>🔒 Secure Data Sync</h3>
+          <p>
+            Your tasks are safely stored in Firebase with real-time syncing.
+            Access them anytime, anywhere, on any device.
+          </p>
+        </div>
+        <div class="feature-media">
+          <img src="/assets/sync.png" alt="Cloud sync" />
+        </div>
+      </div>
+    </section>
+
+  </main>
+  <script type="module">
+    import { renderNavbar } from '/src/navbar.js';
+    renderNavbar();
+  </script>
+</body>
+</html>

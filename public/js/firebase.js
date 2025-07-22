@@ -17,17 +17,5 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 
-const auth = getAuth();
-onAuthStateChanged(auth, (user) => {
-  if (user) {
-    localStorage.setItem("authUser", JSON.stringify({
-      uid: user.uid,
-      email: user.email,
-      displayName: user.displayName
-    }));
-  } else {
-    localStorage.removeItem("authUser");
-  }
-});
-
+export const auth = getAuth(app);
 export const db = getDatabase(app);

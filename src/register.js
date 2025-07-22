@@ -1,7 +1,7 @@
 // src/register.js
 
 import { auth } from './firebase.js';
-import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
+import { createUserWithEmailAndPassword, updateProfile } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-auth.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("register-form");

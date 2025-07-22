@@ -4,6 +4,9 @@
   <meta charset="UTF-8" />
   <title>Login</title>
   <link rel="stylesheet" href="src/styles/auth.css" />
+  <!-- Firebase CDN -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
 </head>
 <body>
   <div class="auth-container">
@@ -17,33 +20,42 @@
     <p>Don't have an account? <a href="register.html">Register here</a></p>
   </div>
 
-  <script type="module">
-    import { auth } from '/src/firebase.js';
-    import { signInWithEmailAndPassword } from 'firebase/auth';
+  <script>
+    // Your Firebase config
+    const firebaseConfig = {
+      apiKey: "AIzaSyCoM0IAK34-oLAyMCchKm5CNN66XCSmFUo",
+      authDomain: "my-to-do-e4bba.firebaseapp.com",
+      databaseURL: "https://my-to-do-e4bba-default-rtdb.asia-southeast1.firebasedatabase.app",
+      projectId: "my-to-do-e4bba",
+      storageBucket: "my-to-do-e4bba.appspot.com",
+      messagingSenderId: "778227224641",
+      appId: "1:778227224641:web:acf2edd3de1d8ae5f276c0",
+      measurementId: "G-CHEYKDES16"
+    };
 
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+
+    // Login logic
     const form = document.getElementById("login-form");
-
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
 
-      const email = form.email.value.trim();
-      const password = form.password.value;
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value;
 
       if (!email || !password) {
         alert("⛔ Please enter both email and password.");
         return;
       }
 
-      console.log("📧 Email:", email);
-      console.log("🔑 Password entered:", password.length > 0);
-
       try {
-        const userCredential = await signInWithEmailAndPassword(auth, email, password);
-        console.log("✅ Login success:", userCredential);
+        const userCredential = await auth.signInWithEmailAndPassword(email, password);
         alert("✅ Login successful!");
-        window.location.href = "/index.html"; // hoặc "/" nếu bạn dùng Vite
+        window.location.href = "index.html";
       } catch (error) {
-        console.error("❌ Firebase Auth Error:", error.code, error.message);
+        console.error("Login error:", error);
         alert(`❌ Login failed: ${error.message}`);
       }
     });

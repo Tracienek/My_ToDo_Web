@@ -1,7 +1,7 @@
 // src/firebase.js
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-app.js";
-import { getAuth } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-auth.js";
+import { getAuth, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/10.12.1/firebase-auth.js';
 import { getDatabase } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-database.js";
 
 const firebaseConfig = {
@@ -17,5 +17,17 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 
-export const auth = getAuth(app);
+const auth = getAuth();
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    localStorage.setItem("authUser", JSON.stringify({
+      uid: user.uid,
+      email: user.email,
+      displayName: user.displayName
+    }));
+  } else {
+    localStorage.removeItem("authUser");
+  }
+});
+
 export const db = getDatabase(app);

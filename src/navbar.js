@@ -2,12 +2,15 @@ export function renderNavbar() {
   const nav = document.createElement("nav");
   nav.innerHTML = `
     <ul class="navbar">
-      <li><a href="/homepage.html">Home</a></li>
-      <li><a href="/history.html">History</a></li>
-      <li><a href="/about.html">About</a></li>
-      <li><a href="/profile.html">Profile</a></li>
-      <li><a href="/login.html">Log Out</a></li>
+      <li><a href="/src/templates/homepage.html">Home</a></li>
+      <li><a href="/src/templates/history.html">History</a></li>
+      <li><a href="/src/templates/about.html">About</a></li>
+      <li><a href="/src/templates/profile.html">Profile</a></li>
+      <li><a href="/src/templates/login.html">Log Out</a></li>
     </ul>
   `;
-  document.body.prepend(nav);
+  const target = document.getElementById("navbar");
+  if (target) {
+    target.appendChild(nav);
+  }
 }

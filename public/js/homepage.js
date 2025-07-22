@@ -1,5 +1,5 @@
 import { renderNavbar } from '../js/navbar.js';
-import { auth, db } from './firebase.js';
+import { auth, db } from '../js/firebase.js';
 import { ref, set, push, onValue } from "firebase/database";
 import { onAuthStateChanged } from "firebase/auth";
 import { taskHistoryScheduler } from '../js/taskHistoryScheduler.js';

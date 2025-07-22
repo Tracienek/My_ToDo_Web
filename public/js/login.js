@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
       await signInWithEmailAndPassword(auth, email, password);
       alert("✅ Login successful!");
 
-      window.location.href = "../html/homepage.html";
+      window.location.href = "./homepage.html";
     } catch (error) {
       console.error("Login error:", error);
       alert(`❌ Login failed: ${error.message}`);

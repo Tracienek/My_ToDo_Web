@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
       await updateProfile(user, { displayName: username });
 
       alert("✅ Registered successfully!");
-      window.location.href = "../html/login.html";
+      window.location.href = "/login.html";
     } catch (error) {
       console.error("Registration error:", error.code, error.message);
       alert("❌ Registration failed: " + error.message);

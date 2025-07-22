@@ -5,6 +5,24 @@ body {
   padding: 1rem 1rem;
 }
 
+.welcome-text {
+  text-align: center;
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+  color: #444;
+}
+
+.footer {
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.9rem;
+  color: #666;
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(6px);
+  margin-top: 3rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
 h1 {
   text-align: center;
   color: rgb(83, 82, 82);
@@ -245,4 +263,10 @@ section h3 {
 
 #missed-list li {
   border-left-color: #e74c3c; /* red for missed */
+}
+
+@media (max-width: 500px) {
+  h1 {
+    font-size: 2.5rem;
+  }
 }

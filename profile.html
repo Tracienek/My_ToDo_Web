@@ -3,12 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <title>User Profile</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="src/styles/navbar.css" />
   <link rel="stylesheet" href="src/styles/style.css">
 </head>
 <body>
   <div class="container">
-    <img id="avatar-preview" class="avatar" src="https://via.placeholder.com/100" alt="User Avatar" />
+    <img id="avatar-preview" class="avatar" src="assets/default-avatar.png" alt="User Avatar" />
     <div id="view-mode">
       <h2 id="username-display"></h2>
       <p id="email-display"><strong>Birthday:</strong></p>
@@ -38,6 +39,10 @@
       </div>
     </form>
   </div>
+  <footer class="footer">
+    <p>© 2025 My To-Do App. Made with ❤️ by Tracie.</p>
+  </footer>
+
 
   <script type="module">
     import { auth } from '/src/firebase.js';
@@ -81,7 +86,7 @@
       const profile = JSON.parse(localStorage.getItem("userProfile")) || {};
       document.getElementById("birth-display").textContent = profile.birth || "(not set)";
       document.getElementById("gender-display").textContent = profile.gender || "(not set)";
-      avatarPreview.src = profile.avatar || "https://via.placeholder.com/100";
+      avatarPreview.src = profile.avatar || "assets/default-avatar.png";
       document.getElementById("username").value = currentUser.displayName || "";
       document.getElementById("birth").value = profile.birth || "";
       document.getElementById("gender").value = profile.gender || "";
